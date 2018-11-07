@@ -621,6 +621,8 @@ def compose(im, y, fns):
     for fn in fns:
         #pdb.set_trace()
         im, y =fn(im, y)
+        if not len(im.shape)==3:     
+            im=im[:,:,None]  
     return im if y is None else (im, y)
 
 
